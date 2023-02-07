@@ -12,6 +12,7 @@
         <q-input
           v-model="password"
           :type="isPwd ? 'password' : 'text'"
+          label="Password *"
           lazy-rules
           :rules="[
             (val) =>
@@ -35,7 +36,7 @@
         <q-toggle v-model="accept" label="I accept the license and terms" />
 
         <div>
-          <q-btn label="Log in" type="submit" color="primary" />
+          <q-btn label="Log in / Sign up" type="submit" color="primary" />
           <q-btn
             label="Reset"
             type="reset"

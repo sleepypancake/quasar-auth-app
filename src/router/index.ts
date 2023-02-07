@@ -1,4 +1,5 @@
 import { route } from 'quasar/wrappers';
+// import { auth } from 'src/boot/firebase';
 import {
   createMemoryHistory,
   createRouter,
@@ -21,6 +22,46 @@ export default route(function () {
 
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
+
+  // Router.beforeEach((to, from, next) => {
+  //   auth.onAuthStateChanged((userAuth) => {
+  //     if (userAuth) {
+  //       auth.currentUser?.getIdTokenResult().then(({ claims }) => {
+  //         console.log({ claims });
+
+  //         if (claims.user) {
+  //           if (to.path !== '/customer')
+  //             return next({
+  //               path: '/customer',
+  //             });
+  //         } else if (claims.admin) {
+  //           if (to.path !== '/admin')
+  //             return next({
+  //               path: '/admin',
+  //             });
+  //         } else if (claims.driver) {
+  //           if (to.path !== '/driver')
+  //             return next({
+  //               path: '/driver',
+  //             });
+  //         }
+  //       });
+  //     } else {
+  //       if (to.matched.some((record) => record.meta.auth)) {
+  //         next({
+  //           path: '/login',
+  //           query: {
+  //             redirect: to.fullPath,
+  //           },
+  //         });
+  //       } else {
+  //         next();
+  //       }
+  //     }
+  //   });
+
+  //   next();
+  // });
 
   return Router;
 });
